@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>SIT Nagpur - Student Information</title>
+</head>
+
+<body>
+
+    <h1>Student Information</h1>
+    <hr>
+
+    <!-- Basic Form for Student Details -->
+    <form onsubmit="alert('Student Details Submitted Successfully!'); return false;">
+        <label for="name">Student Name:</label><br>
+        <input type="text" id="name" placeholder="Enter student name" required>
+        <br><br>
+
+        <label for="phone">Phone No.:</label><br>
+        <input type="tel" id="phone" placeholder="Enter phone number" required>
+        <br><br>
+
+        <label for="dept">Department:</label><br>
+        <select id="dept">
+            <option value="cs">Computer Science</option>
+            <option value="it">Information Technology</option>
+            <option value="electronics">Electronics</option>
+            <option value="mechanical">Mechanical</option>
+            <option value="civil">Civil</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <!-- Link to Department Page -->
+    <a href="department.html">Go to Department Page</a>
+
+</body>
+
+</html>
