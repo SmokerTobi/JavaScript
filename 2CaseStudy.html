@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); margin: 0; padding: 0; min-height: 100vh; }
+        header { background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 15px; text-align: center; }
+        .container { width: 80%; max-width: 900px; margin: 20px auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .customer-details { margin-bottom: 20px; padding: 15px; background-color: #f0f0f0; border-radius: 5px; border: 1px solid #ccc; }
+        .customer-details input { padding: 8px; width: 250px; margin-left: 10px; }
+        .products-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+        .product { border: 1px solid #ddd; padding: 15px; width: 45%; background-color: #f9f9f9; border-radius: 5px; box-sizing: border-box; }
+        .product h2 { margin-top: 0; color: #333; }
+        .price { font-size: 18px; font-weight: bold; color: #d9534f; }
+        .quantity { margin-top: 10px; }
+        .quantity input { padding: 5px; width: 60px; }
+        button { background-color: #5cb85c; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; margin-top: 20px; border-radius: 5px; }
+        button:hover { background-color: #4cae4c; }
+        #billSection { display: none; margin-top: 30px; padding: 30px; border: 2px solid #333; background-color: #fff; border-radius: 8px; }
+        #billSection h3 { text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
+        .invoice-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .invoice-table th, .invoice-table td { border-bottom: 1px solid #ddd; padding: 12px; }
+        .invoice-table th { text-align: left; background-color: #f4f4f4; }
+        .invoice-table th.right, .invoice-table td.right { text-align: right; }
+        .totals-row td { font-weight: bold; border-top: 2px solid #333; }
+        .print-btn { background-color: #0275d8; margin-top: 20px; }
+        .print-btn:hover { background-color: #025aa5; }
+        @media print { body * { visibility: hidden; } #billSection, #billSection * { visibility: visible; } #billSection { position: absolute; left: 0; top: 0; width: 100%; border: none; margin: 0; padding: 10px; } .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+    <header><h1>My Tech Store</h1></header>
+    <main class="container">
+        <div class="customer-details"><label><b>Customer Name:</b></label> <input type="text" id="customer-name" placeholder="Enter your name"></div>
+        <div class="products-container">
+            <article class="product"><h2>Laptop</h2><p>High performance laptop.</p><p class="price">Price: 50000</p><div class="quantity"><label>Enter Quantity: </label><input type="number" id="qty-laptop" min="0" value="0"></div></article>
+            <article class="product"><h2>Mobile</h2><p>Latest smartphone with great camera.</p><p class="price">Price: 20000</p><div class="quantity"><label>Enter Quantity: </label><input type="number" id="qty-mobile" min="0" value="0"></div></article>
+            <article class="product"><h2>Mouse</h2><p>Wireless optical mouse.</p><p class="price">Price: 500</p><div class="quantity"><label>Enter Quantity: </label><input type="number" id="qty-mouse" min="0" value="0"></div></article>
+            <article class="product"><h2>Keypad</h2><p>Mechanical gaming keypad.</p><p class="price">Price: 1000</p><div class="quantity"><label>Enter Quantity: </label><input type="number" id="qty-keypad" min="0" value="0"></div></article>
+        </div>
+        <div style="text-align: center;"><button onclick="generateBill()">Generate Bill</button></div>
+        <section id="billSection">
+            <h3>Formal Invoice</h3><p><strong>Customer Name:</strong> <span id="bill-customer-name"></span></p>
+            <table class="invoice-table">
+                <thead><tr><th>Product & Qty</th><th class="right">Amount</th></tr></thead>
+                <tbody id="billItemsBody"></tbody>
+                <tfoot>
+                    <tr><td>Total Price</td><td class="right" id="totalAmt">0</td></tr>
+                    <tr><td>GST (18%)</td><td class="right" id="gstAmt">0</td></tr>
+                    <tr class="totals-row"><td>Final Price</td><td class="right" id="finalAmt">0</td></tr>
+                </tfoot>
+            </table>
+            <div style="text-align: center;"><button class="print-btn" onclick="window.print()">Print Bill</button></div>
+            
+        </section>
+    </main>
+    <script src="2cal.js"></script>
+</body>
+</html>
