@@ -1,286 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Shopping - 2 Products</title>
+    <title>Product Calculation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-            color: white;
-            padding: 15px;
-            text-align: center;
+            background-color: #e8f5e9;
+            margin: 50px auto;
+            max-width: 400px;
         }
 
         .container {
-            width: 80%;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: white;
+            background: #ffffff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .nav-links {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .nav-links a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #1e3c72;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .nav-links a.active {
-            background-color: #d9534f;
-        }
-        
-        .nav-links a:hover {
-            background-color: #2a5298;
-        }
-
-        .customer-details {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        
-        .customer-details input {
-            padding: 8px;
-            width: 250px;
-            margin-left: 10px;
-        }
-
-        .products-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-around;
-        }
-
-        .product {
-            border: 1px solid #ddd;
-            padding: 15px;
-            width: 45%;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .product h2 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #d9534f;
-        }
-
-        .quantity {
-            margin-top: 10px;
-        }
-        
-        .quantity input {
-            padding: 5px;
-            width: 60px;
-        }
-
-        button.gen-btn {
-            background-color: #5cb85c;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-
-        button.gen-btn:hover {
-            background-color: #4cae4c;
-        }
-
-        #billSection {
-            display: none;
-            margin-top: 30px;
-            padding: 30px;
-            border: 2px solid #333;
-            background-color: #fff;
+            border: 2px solid #4caf50;
             border-radius: 8px;
         }
 
-        #billSection h3 {
+        h2 {
             text-align: center;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-top: 0;
-            text-transform: uppercase;
-        }
-        
-        .invoice-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        .invoice-table th, .invoice-table td {
-            border-bottom: 1px solid #ddd;
-            padding: 12px;
+            color: #2e7d32;
         }
 
-        .invoice-table th {
-            text-align: left;
-            background-color: #f4f4f4;
+        .form-group {
+            margin-bottom: 15px;
         }
-        
-        .invoice-table th.right, .invoice-table td.right {
-            text-align: right;
-        }
-        
-        .totals-row td {
+
+        label {
+            display: block;
+            margin-bottom: 5px;
             font-weight: bold;
-            border-top: 2px solid #333;
+            color: #333;
         }
 
-        .print-btn {
-            background-color: #0275d8;
-            margin-top: 20px;
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
             color: white;
-            padding: 10px 20px;
             border: none;
-            cursor: pointer;
+            border-radius: 4px;
             font-size: 16px;
-            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .print-btn:hover {
-            background-color: #025aa5;
+        button:hover {
+            background-color: #388e3c;
         }
 
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #billSection, #billSection * {
-                visibility: visible;
-            }
-            #billSection {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                border: none;
-                margin: 0;
-                padding: 10px;
-            }
-            .print-btn, .nav-links {
-                display: none;
-            }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #c8e6c9;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #4caf50;
+            margin: 10px 0;
         }
     </style>
 </head>
+
 <body>
-
-    <header>
-        <h1>My Tech Store - Basic Edition</h1>
-    </header>
-
-    <main class="container">
-        
-        <div class="nav-links">
-            <a href="2product.html" class="active">2 Product Project</a>
-            <a href="2CaseStudy.html">Case Study (4 Items)</a>
+    <div class="container">
+        <h2>Product Invoice</h2>
+        <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <input type="text" id="customerName" placeholder="Enter customer name">
         </div>
-
-        <div class="customer-details">
-            <label><b>Customer Name:</b></label>
-            <input type="text" id="customer-name" placeholder="Enter your name">
+        <div class="form-group">
+            <label for="product">Product Name</label>
+            <input type="text" id="product" placeholder="Enter product name">
         </div>
-
-        <div class="products-container">
-            <!-- Product 1 -->
-            <article class="product">
-                <h2>Laptop</h2>
-                <p>High performance laptop.</p>
-                <p class="price">Price: 50000</p>
-                <div class="quantity">
-                    <label>Enter Quantity: </label>
-                    <input type="number" id="qty-laptop" min="0" value="0">
-                </div>
-            </article>
-
-            <!-- Product 2 -->
-            <article class="product">
-                <h2>Mobile</h2>
-                <p>Latest smartphone with great camera.</p>
-                <p class="price">Price: 20000</p>
-                <div class="quantity">
-                    <label>Enter Quantity: </label>
-                    <input type="number" id="qty-mobile" min="0" value="0">
-                </div>
-            </article>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" id="price" placeholder="Enter price" min="0">
         </div>
-
-        <div style="text-align: center;">
-            <button class="gen-btn" onclick="generateBill()">Generate Bill</button>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" placeholder="Enter quantity" min="1" value="1">
         </div>
+        <button onclick="calculateBill()">Calculate Bill</button>
 
-        <section id="billSection">
-            <h3>Formal Invoice</h3>
-            <p><strong>Customer Name:</strong> <span id="bill-customer-name"></span></p>
-            
-            <table class="invoice-table">
-                <thead>
-                    <tr>
-                        <th>Product & Qty</th>
-                        <th class="right">Amount</th>
-                    </tr>
-                </thead>
-                <tbody id="billItemsBody">
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Total Price</td>
-                        <td class="right" id="totalAmt">0</td>
-                    </tr>
-                    <tr>
-                        <td>GST (18%)</td>
-                        <td class="right" id="gstAmt">0</td>
-                    </tr>
-                    <tr class="totals-row">
-                        <td>Final Price</td>
-                        <td class="right" id="finalAmt">0</td>
-                    </tr>
-                </tfoot>
-            </table>
-            
-            <div style="text-align: center;">
-                <button class="print-btn" onclick="window.print()">Print Bill</button>
-            </div>
-        </section>
+        <div id="result">
+            <div class="result-item"><span>Customer:</span> <strong id="res-customer"></strong></div>
+            <div class="result-item"><span>Product:</span> <strong id="res-product"></strong></div>
+            <div class="result-item"><span>Subtotal:</span> <strong id="res-subtotal"></strong></div>
+            <div class="result-item"><span>GST (18%):</span> <strong id="res-gst"></strong></div>
+            <hr>
+            <div class="result-item"><span>Total:</span> <strong id="res-total"></strong></div>
+        </div>
+    </div>
 
-    </main>
-
-    <!-- Shared Javascript file -->
-    <script src="2cal.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
