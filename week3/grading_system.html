@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Student Grading System</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; color: #333; text-align: center;">
+
+    <h2 style="color: navy; font-weight: bold;"> Student Grading System</h2>
+
+    <form>
+        <label style="font-weight: bold;">Student Name:</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label style="font-weight: bold;">Marks: </label><br>
+        <input type="number" id="marks"><br><br>
+
+        <input type="button" value="Calculate Grade" onclick="GradeSystem()">
+    </form>
+
+    <script>
+        function GradeSystem() {
+            var name = document.getElementById("name").value;
+            var marks = document.getElementById("marks").value;
+
+
+            if (name == "") {
+                alert("Please enter Student Name");
+                return;
+            }
+
+            if (marks == "") {
+                alert("Please enter marks");
+                return;
+            }
+
+            marks = Number(marks);
+            if (marks < 0 || marks > 100) {
+                alert("Invalid marks");
+                return;
+            }
+
+            var grade;
+            var result;
+            if (marks >= 90) {
+                grade = "A+";
+                result = "Pass";
+            }
+            else if (marks >= 80) {
+                grade = "A";
+                result = "PASS";
+            }
+            else if (marks >= 70) {
+                grade = "B";
+                result = "PASS";
+            }
+            else if (marks >= 60) {
+                grade = "C";
+                result = " Pass";
+            }
+            else if (marks >= 50) {
+                grade = "D";
+                result = "Pass";
+            }
+            else if (marks >= 40) {
+                grade = "E";
+                result = "Fail";
+            }
+            else {
+                grade = "F";
+                result = "Fail";
+            }
+
+
+            document.write("<div style='text-align: center; font-family: Arial, sans-serif; color: #333; margin-top: 20px;'>");
+            document.write("<h2 style='color: navy;'>Student Grade Report</h2>");
+            document.write("<hr style='width: 50%; margin: 10px auto;'>");
+            document.write("<b>Student Name :</b> " + name + "<br><br>");
+            document.write("<b>Marks :</b> " + marks + "<br><br>");
+            document.write("<b>Grade :</b> " + grade + "<br><br>");
+            document.write("<b>Result :</b> " + result);
+            document.write("</div>");
+        }
+    </script>
+</body>
+
+</html>

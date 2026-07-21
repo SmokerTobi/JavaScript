@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Password Validation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .login-card {
+            width: 400px;
+            border: 1px solid black;
+            padding: 15px;
+            margin: 100px auto;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .validation-box {
+            margin-top: 20px;
+            border-top: 1px dashed black;
+            padding-top: 10px;
+        }
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            color: red;
+            margin-bottom: 5px;
+        }
+        .checklist li.valid {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        
+        <div class="login-card">
+            <div class="header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your account to continue</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required placeholder="Enter your username">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="Enter your password">
+                </div>
+
+                <div class="validation-box">
+                    <h3>Password Requirements</h3>
+                    <ul class="checklist">
+                        <li id="req-length">
+                            Minimum 8 characters
+                        </li>
+                        <li id="req-uppercase">
+                            One uppercase letter
+                        </li>
+                        <li id="req-number">
+                            One number
+                        </li>
+                        <li id="req-special">
+                            One special character
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="submit-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const reqLength = document.getElementById('req-length');
+        const reqUppercase = document.getElementById('req-uppercase');
+        const reqNumber = document.getElementById('req-number');
+        const reqSpecial = document.getElementById('req-special');
+        const loginForm = document.getElementById('loginForm');
+
+        // Listen for typing in the password field
+        passwordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+
+            let hasUppercase = false;
+            let hasNumber = false;
+            let hasSpecial = false;
+
+            // Use conditional statements and loop through characters
+            for (let i = 0; i < password.length; i++) {
+                const char = password[i];
+                
+                // Check if uppercase letter
+                if (char >= 'A' && char <= 'Z') {
+                    hasUppercase = true;
+                }
+                // Check if number
+                else if (char >= '0' && char <= '9') {
+                    hasNumber = true;
+                }
+                // Check if special character (not lowercase, not uppercase, not number)
+                else if (!(char >= 'a' && char <= 'z')) {
+                    hasSpecial = true;
+                }
+            }
+
+            // Check if password length is at least 8 characters
+            if (password.length >= 8) {
+                reqLength.classList.add('valid');
+            } else {
+                reqLength.classList.remove('valid');
+            }
+            
+            // Apply valid class for uppercase letter
+            if (hasUppercase) {
+                reqUppercase.classList.add('valid');
+            } else {
+                reqUppercase.classList.remove('valid');
+            }
+            
+            // Apply valid class for number
+            if (hasNumber) {
+                reqNumber.classList.add('valid');
+            } else {
+                reqNumber.classList.remove('valid');
+            }
+            
+            // Apply valid class for special character
+            if (hasSpecial) {
+                reqSpecial.classList.add('valid');
+            } else {
+                reqSpecial.classList.remove('valid');
+            }
+        });
+
+        // Handle form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = passwordInput.value;
+            
+            let hasUppercase = false;
+            let hasNumber = false;
+            let hasSpecial = false;
+
+            for (let i = 0; i < password.length; i++) {
+                const char = password[i];
+                if (char >= 'A' && char <= 'Z') {
+                    hasUppercase = true;
+                } else if (char >= '0' && char <= '9') {
+                    hasNumber = true;
+                } else if (!(char >= 'a' && char <= 'z')) {
+                    hasSpecial = true;
+                }
+            }
+
+            const isValid = password.length >= 8 && hasUppercase && hasNumber && hasSpecial;
+            
+            // Final validation check before "submitting"
+            if (isValid) {
+                alert('Success! Your username and password meet all requirements.');
+            } else {
+                alert('Please ensure your password meets all requirements before signing in.');
+            }
+        });
+    </script>
+</body>
+</html>
