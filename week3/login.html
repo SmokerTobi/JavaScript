@@ -105,42 +105,42 @@
             for (let i = 0; i < password.length; i++) {
                 const char = password[i];
                 
-                // Check if uppercase letter
+                
                 if (char >= 'A' && char <= 'Z') {
                     hasUppercase = true;
                 }
-                // Check if number
+                
                 else if (char >= '0' && char <= '9') {
                     hasNumber = true;
                 }
-                // Check if special character (not lowercase, not uppercase, not number)
+                
                 else if (!(char >= 'a' && char <= 'z')) {
                     hasSpecial = true;
                 }
             }
 
-            // Check if password length is at least 8 characters
+            
             if (password.length >= 8) {
                 reqLength.classList.add('valid');
             } else {
                 reqLength.classList.remove('valid');
             }
             
-            // Apply valid class for uppercase letter
+            
             if (hasUppercase) {
                 reqUppercase.classList.add('valid');
             } else {
                 reqUppercase.classList.remove('valid');
             }
             
-            // Apply valid class for number
+            
             if (hasNumber) {
                 reqNumber.classList.add('valid');
             } else {
                 reqNumber.classList.remove('valid');
             }
             
-            // Apply valid class for special character
+           
             if (hasSpecial) {
                 reqSpecial.classList.add('valid');
             } else {

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Registration Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #eafaf1; /* light green background */
+            color: #0b5345; /* dark green text */
+        }
+        .container {
+            border: 2px solid #27ae60;
+            padding: 30px;
+            background-color: #ffffff;
+            width: 450px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 80%;
+            border: 1px solid #2ecc71;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .valid {
+            color: #27ae60;
+        }
+        .invalid {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vehicle Registration Validator</h2>
+        <input type="text" id="reg-input" placeholder="e.g. MH12AB1234">
+        <br>
+        <button id="validate-btn">Validate</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function validateRegistration(regNo) {
+            if (!regNo) {
+                throw new Error("Registration number should not be empty.");
+            }
+            if (regNo.length !== 10) {
+                throw new Error("Length should be exactly 10 characters.");
+            }
+            // 1. First two characters must be uppercase alphabets (State Code)
+            if (!/^[A-Z]{2}$/.test(regNo.substring(0, 2))) {
+                throw new Error("First two characters must be uppercase alphabets.");
+            }
+            // 2. Next two characters must be digits (District Code)
+            if (!/^\d{2}$/.test(regNo.substring(2, 4))) {
+                throw new Error("Third and fourth characters must be digits.");
+            }
+            // 3. Next two characters must be uppercase alphabets (Series)
+            if (!/^[A-Z]{2}$/.test(regNo.substring(4, 6))) {
+                throw new Error("Fifth and sixth characters must be uppercase alphabets.");
+            }
+            // 4. Last four characters must be digits (Vehicle Number)
+            if (!/^\d{4}$/.test(regNo.substring(6, 10))) {
+                throw new Error("Last four characters must be digits.");
+            }
+            
+            return "Valid Vehicle Registration Number!";
+        }
+
+        document.getElementById("validate-btn").addEventListener("click", () => {
+            const input = document.getElementById("reg-input").value;
+            const resultDiv = document.getElementById("result");
+            
+            try {
+                const message = validateRegistration(input);
+                resultDiv.textContent = message;
+                resultDiv.className = "valid";
+            } catch (error) {
+                resultDiv.textContent = "Invalid: " + error.message;
+                resultDiv.className = "invalid";
+            }
+        });
+    </script>
+</body>
+</html>
