@@ -157,7 +157,7 @@
         const reqSpecial = document.getElementById('req-special');
         const loginForm = document.getElementById('loginForm');
 
-        // Listen for typing in the password field
+        
         passwordInput.addEventListener('input', function() {
             const password = passwordInput.value;
 
@@ -165,7 +165,7 @@
             let hasNumber = false;
             let hasSpecial = false;
 
-            // Use conditional statements and loop through characters
+            
             for (let i = 0; i < password.length; i++) {
                 const char = password[i];
                 
@@ -212,7 +212,7 @@
             }
         });
 
-        // Handle form submission
+      
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -235,7 +235,7 @@
 
             const isValid = password.length >= 8 && hasUppercase && hasNumber && hasSpecial;
             
-            // Final validation check before "submitting"
+           
             if (isValid) {
                 alert('Success! Your username and password meet all requirements.');
             } else {
