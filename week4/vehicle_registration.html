@@ -10,27 +10,37 @@
             color: #0b5345; /* dark green text */
         }
         .container {
-            border: 2px solid #27ae60;
-            padding: 30px;
+            padding: 40px;
             background-color: #ffffff;
             width: 450px;
             margin: 0 auto;
             text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.15);
         }
         input {
-            padding: 8px;
+            padding: 10px;
             font-size: 16px;
             width: 80%;
             border: 1px solid #2ecc71;
+            border-radius: 4px;
             margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
         }
         button {
-            padding: 8px 20px;
+            padding: 10px 24px;
             font-size: 16px;
             background-color: #27ae60;
             color: white;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.2s;
         }
         button:hover {
             background-color: #219150;
