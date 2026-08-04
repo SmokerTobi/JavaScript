@@ -75,19 +75,19 @@
             if (regNo.length !== 10) {
                 throw new Error("Length should be exactly 10 characters.");
             }
-            // 1. First two characters must be uppercase alphabets (State Code)
+            
             if (!/^[A-Z]{2}$/.test(regNo.substring(0, 2))) {
                 throw new Error("First two characters must be uppercase alphabets.");
             }
-            // 2. Next two characters must be digits (District Code)
+            
             if (!/^\d{2}$/.test(regNo.substring(2, 4))) {
                 throw new Error("Third and fourth characters must be digits.");
             }
-            // 3. Next two characters must be uppercase alphabets (Series)
+            
             if (!/^[A-Z]{2}$/.test(regNo.substring(4, 6))) {
                 throw new Error("Fifth and sixth characters must be uppercase alphabets.");
             }
-            // 4. Last four characters must be digits (Vehicle Number)
+            
             if (!/^\d{4}$/.test(regNo.substring(6, 10))) {
                 throw new Error("Last four characters must be digits.");
             }
