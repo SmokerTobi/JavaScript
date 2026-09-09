@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Min/Max Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            width: 350px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Salary Min & Max</h2>
+        <input type="text" id="array-input" placeholder="Enter Name:Salary (e.g. John:50000, Jane:60000)">
+        <button id="find-btn">Find Min/Max</button>
+        <div id="result"></div>
+        <div class="footer">
+            Case Study done by: <strong>Himesh Bhure</strong> | PRN: <strong>24070521013</strong>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("find-btn").addEventListener("click", () => {
+            const inputVal = document.getElementById("array-input").value;
+            const resultDiv = document.getElementById("result");
+
+            if (!inputVal.trim()) {
+                alert("Please enter Name:Salary pairs");
+                return;
+            }
+
+            // Parse input string to array of objects
+            const parts = inputVal.split(",");
+            const employees = [];
+            for (let i = 0; i < parts.length; i++) {
+                const empData = parts[i].split(":");
+                if (empData.length === 2) {
+                    const name = empData[0].trim();
+                    const salary = parseFloat(empData[1].trim());
+                    if (!isNaN(salary) && name) {
+                        employees.push({ name: name, salary: salary });
+                    }
+                }
+            }
+
+            if (employees.length === 0) {
+                alert("Please enter valid Name:Salary pairs");
+                return;
+            }
+
+            // Find Min and Max manually using loop logic
+            let minEmp = employees[0];
+            let maxEmp = employees[0];
+
+            for (let i = 1; i < employees.length; i++) {
+                if (employees[i].salary > maxEmp.salary) {
+                    maxEmp = employees[i];
+                } else if (employees[i].salary < minEmp.salary) {
+                    minEmp = employees[i];
+                }
+            }
+
+            resultDiv.innerHTML = `
+                <strong>Minimum Salary:</strong> ${minEmp.name} (${minEmp.salary})<br>
+                <strong>Maximum Salary:</strong> ${maxEmp.name} (${maxEmp.salary})
+            `;
+        });
+    </script>
+</body>
+</html>

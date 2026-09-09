@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Case Study | Himesh Bhure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="case_study.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="app-header">
+        <h1>Student Registration Form</h1>
+        <p>Week 7 Case Study: Event Handling</p>
+    </header>
+
+    <main class="form-wrapper">
+        <form id="reg-form" novalidate>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name <span class="req">*</span></label>
+                    <input type="text" id="fname" name="fname">
+                    <div class="error-msg" id="fname-err"></div>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name <span class="req">*</span></label>
+                    <input type="text" id="lname" name="lname">
+                    <div class="error-msg" id="lname-err"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Birthday <span class="req">*</span></label>
+                <div class="dob-group">
+                    <select id="day" name="day"><option value="">Day</option></select>
+                    <select id="month" name="month"><option value="">Month</option></select>
+                    <select id="year" name="year"><option value="">Year</option></select>
+                </div>
+                <div class="error-msg" id="dob-err"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email <span class="req">*</span></label>
+                    <input type="email" id="email" name="email">
+                    <div class="error-msg" id="email-err"></div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number <span class="req">*</span></label>
+                    <input type="text" id="mobile" name="mobile">
+                    <div class="error-msg" id="mobile-err"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender <span class="req">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" id="male" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" id="female" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" id="other" name="gender" value="Other"> Other</label>
+                </div>
+                <div class="error-msg" id="gender-err"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course <span class="req">*</span></label>
+                <select id="course" name="course">
+                    <option value="">--Select Course--</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="BTech">B.Tech</option>
+                </select>
+                <div class="error-msg" id="course-err"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary" id="submit-btn">Register Student</button>
+                <button type="reset" class="btn-secondary" id="reset-btn">Reset Form</button>
+            </div>
+        </form>
+    </main>
+
+    <div id="output-panel" class="output-panel hidden">
+        <h3>Submitted Student Details</h3>
+        <div id="output-content"></div>
+    </div>
+
+    <footer class="app-footer">
+        <p>Case Study done by: <strong>Himesh Bhure</strong> | PRN: <strong>24070521013</strong></p>
+    </footer>
+</div>
+<script src="case_study.js"></script>
+</body>
+</html>

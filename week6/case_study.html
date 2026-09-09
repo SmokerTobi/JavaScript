@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 Case Study | Himesh Bhure</title>
+    <meta name="description" content="Week 6 Case Study focusing on text processing, string manipulation, and event handling.">
+    <link rel="stylesheet" href="case_study.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <h1>Text Processing Toolkit</h1>
+        </header>
+        
+        <main class="content-wrapper">
+            <section class="workspace glass-panel">
+                <h2>Interactive Workspace</h2>
+                <div class="input-group">
+                    <label for="inputText">Input Text</label>
+                    <textarea id="inputText" rows="5" placeholder="Type or paste your text here..."></textarea>
+                </div>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>Reverse String</h3>
+                        <p>Flips the text backwards</p>
+                        <button id="btnReverseString" class="btn-primary">Execute Reverse</button>
+                        <div id="outReverse" class="output-area"></div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h3>Vowel Analyzer</h3>
+                        <p>Counts and highlights vowels</p>
+                        <button id="btnCountVowels" class="btn-secondary">Analyze Vowels</button>
+                        <div id="outVowels" class="output-area"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="glass-footer">
+            <p>Case Study done by: <strong>Himesh Bhure</strong> | PRN: <strong>24070521013</strong></p>
+        </footer>
+    </div>
+    <script src="case_study.js"></script>
+</body>
+</html>

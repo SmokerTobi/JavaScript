@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    </meta>
     <title>Shopping Cart Calculator</title>
-    <STYLE>
+
+    <style>
         body {
             font-family: Arial;
             background: #f2f2f2;
@@ -14,7 +14,7 @@
         .container {
             width: 800px;
             margin: 30px auto;
-            background: #fff;
+            background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px gray;
@@ -27,7 +27,7 @@
         }
 
         button {
-            padding: 10px 15px;
+            padding: 10px;
             cursor: pointer;
         }
 
@@ -44,7 +44,7 @@
         }
 
         th {
-            background: #007BFF;
+            background: #007bff;
             color: white;
         }
 
@@ -58,33 +58,33 @@
             margin-top: 20px;
             font-size: 18px;
         }
-    </STYLE>
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Shopping Cart Calculator</h2>
-        <input type="text" id="name" placeholder="Product Name">
-        <input type="number" id="price" placeholder="Price">
-        <input type="number" id="qty" placeholder="Quantity">
-        <button onclick="addProduct()">Add Product</button>
+    <h2>Shopping Cart Calculator</h2>
+    <input type="text" id="name" placeholder="Product Name">
+    <input type="number" id="price" placeholder="Price">
+    <input type="number" id="qty" placeholder="Quantity">
 
-        <table id="cartTable">
-            <tr>
-                <th>ID </th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-            </tr>
-        </table>
+    <button onclick="addProduct()">Add Product</button>
+    <table id="cartTable">
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </table>
 
-        <div class="result" id="result"></div>
+    <div class="result" id="result">
         <h3>Item Summary</h3>
         <ul id="summary"></ul>
         <h3>Expensive Products (Price > 1000)</h3>
         <ul id="expensive"></ul>
     </div>
+
     <script>
         let cart = [];
         function addProduct() {
@@ -114,25 +114,25 @@
         function displayCart() {
             let table = document.getElementById("cartTable");
             table.innerHTML = `
-            <tr>
-            <th>ID</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            </tr>
-        `;
+                <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                </tr>
+            `;
 
             cart.forEach(function (item) {
                 table.innerHTML += `
-            <tr> 
-            <td>${item.id}</td>
-            <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td>${item.quantity}</td>
-            <td>${item.price * item.quantity}</td>
-            </tr>
-            `;
+                <tr> 
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price * item.quantity}</td>
+                </tr>
+                `;
             });
 
             let total = cart.reduce(function (sum, item) {
@@ -154,15 +154,16 @@
 
             document.getElementById("result").innerHTML =
                 `
-        <b>Total Amount :</b> ${total}<br> 
-        <b>Discount :</b> ${discount.toFixed(2)}<br>
-        <b>Final Amount :</b> ${finalAmount.toFixed(2)}
-        `;
+            <b>Total Amount :</b> ${total}<br> 
+            <b>Discount :</b> ${discount.toFixed(2)}<br>
+            <b>Final Amount :</b> ${finalAmount.toFixed(2)}
+            `;
 
             let summary = document.getElementById("summary");
             summary.innerHTML = "";
             cart.map(function (item) {
-                summary.innerHTML += `<li>${item.name} : ${item.price * item.quantity}</li>`;
+                summary.innerHTML +=
+                    `<li>${item.name} : ${item.price * item.quantity}</li>`;
             });
 
             let expensive = document.getElementById("expensive");
@@ -176,8 +177,9 @@
                 expensive.innerHTML += `<li>${item.name}</li>`;
             });
 
-        } 
+        }
 
     </script>
 </body>
+
 </html>
