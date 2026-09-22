@@ -34,12 +34,32 @@ This repository contains weekly JavaScript experiments and case studies. Click o
 
 ### [Week 5](file:///c:/Users/himes/Desktop/project/week5/24070521013_Himesh_Bhure_A1.md)
 * **Experiment:** Shopping Cart Calculator using ES6 Array Helper Methods (`push`, `forEach`, `reduce`, `map`, `filter`)
-* **Case Study:** N/A (Only Experiment assigned)
+* **Case Study:** Find the Minimum and Maximum Value in an Array of Numbers
 * **Report File:** [24070521013_Himesh_Bhure_A1.md](file:///c:/Users/himes/Desktop/project/week5/24070521013_Himesh_Bhure_A1.md)
+
+### [Week 6](file:///c:/Users/himes/Desktop/project/week6/24070521013_Himesh_Bhure_A1.md)
+* **Experiment:** String Methods and Regular Expressions (`split`, `match`, `replace`, `indexOf`, `reverse`, Email Validation)
+* **Case Study:** Text Processing Toolkit - Interactive String Reverse and Vowel Analyzer
+* **Report File:** [24070521013_Himesh_Bhure_A1.md](file:///c:/Users/himes/Desktop/project/week6/24070521013_Himesh_Bhure_A1.md)
+
+### [Week 7](file:///c:/Users/himes/Desktop/project/week7/24070521013_Himesh_Bhure_A1.md)
+* **Experiment:** Interactive To-Do List Application using DOM Manipulation and Event Handling
+* **Case Study:** Student Registration Form with Real-Time Event-Based Validation (`blur`, `change`, `submit`, `reset`)
+* **Report File:** [24070521013_Himesh_Bhure_A1.md](file:///c:/Users/himes/Desktop/project/week7/24070521013_Himesh_Bhure_A1.md)
+
+### [Week 8](file:///c:/Users/himes/Desktop/project/week8/24070521013_Himesh_Bhure_A1.md)
+* **Experiment:** Gym Admission Form with Real-Time Input Validation using JavaScript Events
+* **Case Study:** Enhanced Gym Admission Registration Form with Comprehensive Event-Based Validation and Styled UI
+* **Report File:** [24070521013_Himesh_Bhure_A1.md](file:///c:/Users/himes/Desktop/project/week8/24070521013_Himesh_Bhure_A1.md)
+
+### [Week 9](file:///c:/Users/himes/Desktop/project/week9/24070521013_Himesh_Bhure_A1.md)
+* **Experiment:** Theme Preferences using `localStorage` (Persistent User Preferences with Light, Dark, and Clear Themes)
+* **Case Study:** Technical Seminar Schedule Manager with `localStorage` and `sessionStorage`
+* **Report File:** [24070521013_Himesh_Bhure_A1.md](file:///c:/Users/himes/Desktop/project/week9/24070521013_Himesh_Bhure_A1.md)
 
 ---
 
 ## Technical Stack Used
 * **Frontend Languages:** HTML5, CSS3, JavaScript (ES6+)
 * **IDEs & Tools:** VS Code, Web Browser Dev Tools
-* **Control Flows & Concepts:** DOM Manipulation, JS Objects, Conditionals, Loops, Event Listeners, Regular Expressions, Array helper methods.
+* **Control Flows & Concepts:** DOM Manipulation, JS Objects, Conditionals, Loops, Event Listeners, Regular Expressions, Array helper methods, String Methods, Form Validation, `localStorage`, `sessionStorage`, `JSON.stringify`/`JSON.parse`.

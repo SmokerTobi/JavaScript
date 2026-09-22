@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Seminar Schedule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Technical Seminar Schedule</h1>
+        
+        <div class="controls">
+            <button id="btn-save-local" class="btn btn-primary">Save to Local Storage</button>
+            <button id="btn-save-session" class="btn btn-secondary">Save to Session Storage</button>
+            <button id="btn-clear" class="btn btn-danger">Clear</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="th-main">Day</th>
+                        <th colspan="2" class="th-main">Schedule</th>
+                        <th rowspan="2" class="th-main">Topic</th>
+                    </tr>
+                    <tr>
+                        <th class="th-sub">Begin</th>
+                        <th class="th-sub">End</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Monday -->
+                    <tr>
+                        <td rowspan="2" class="td-day"><strong>Monday</strong></td>
+                        <td rowspan="2" class="td-begin">8:00 a.m.</td>
+                        <td rowspan="2" class="td-end">5:00 p.m.</td>
+                        <td class="td-topic">
+                            <div class="topic-wrapper">
+                                <input type="text" id="topic-mon-1" class="topic-input" placeholder="Enter topic...">
+                                <button class="alert-btn" title="Show Topic Info">📌</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-topic">
+                            <div class="topic-wrapper">
+                                <input type="text" id="topic-mon-2" class="topic-input" placeholder="Enter topic...">
+                                <button class="alert-btn" title="Show Topic Info">📌</button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Tuesday -->
+                    <tr>
+                        <td rowspan="3" class="td-day"><strong>Tuesday</strong></td>
+                        <td class="td-begin">8:00 a.m.</td>
+                        <td class="td-end">11:00 a.m.</td>
+                        <td class="td-topic">
+                            <div class="topic-wrapper">
+                                <input type="text" id="topic-tue-1" class="topic-input" placeholder="Enter topic...">
+                                <button class="alert-btn" title="Show Topic Info">📌</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-begin">11:00 a.m.</td>
+                        <td class="td-end">2:00 p.m.</td>
+                        <td class="td-topic">
+                            <div class="topic-wrapper">
+                                <input type="text" id="topic-tue-2" class="topic-input" placeholder="Enter topic...">
+                                <button class="alert-btn" title="Show Topic Info">📌</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-begin">2:00 p.m.</td>
+                        <td class="td-end">5:00 p.m.</td>
+                        <td class="td-topic">
+                            <div class="topic-wrapper">
+                                <input type="text" id="topic-tue-3" class="topic-input" placeholder="Enter topic...">
+                                <button class="alert-btn" title="Show Topic Info">📌</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Wednesday -->
+                    <tr>
+                        <td class="td-day"><strong>Wednesday</strong></td>
+                        <td class="td-begin">8:00 a.m.</td>
+                        <td class="td-end">12:00 p.m.</td>
+                        <td class="td-topic">
+                            <div class="topic-wrapper">
+                                <input type="text" id="topic-wed-1" class="topic-input" placeholder="Enter topic...">
+                                <button class="alert-btn" title="Show Topic Info">📌</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Preferences</title>
+    <style>
+        /* Most Basic CSS */
+        body {
+            font-family: sans-serif;
+            margin: 50px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light Theme */
+        body.theme-light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Dark Theme */
+        body.theme-dark {
+            background-color: #222222;
+            color: #ffffff;
+        }
+
+        /* Clear Theme */
+        body.theme-clear {
+            background-color: transparent;
+            color: inherit;
+        }
+
+        .container {
+            border: 1px solid #cccccc;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="theme-light">
+
+    <div class="container">
+        <h1>Theme Preferences</h1>
+        <p>Choose your preferred theme:</p>
+        
+        <button onclick="setTheme('theme-light')">Light Theme</button>
+        <button onclick="setTheme('theme-dark')">Dark Theme</button>
+        <button onclick="setTheme('theme-clear')">Clear Theme</button>
+    </div>
+
+    <script>
+        function setTheme(themeName) {
+            // Remove all theme classes
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-clear');
+            
+            // Add the selected theme class
+            document.body.classList.add(themeName);
+            
+            // Save the preference
+            localStorage.setItem('user-theme', themeName);
+        }
+
+        // On page load, apply the saved theme if it exists
+        window.onload = function() {
+            var savedTheme = localStorage.getItem('user-theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+        };
+    </script>
+
+</body>
+</html>
